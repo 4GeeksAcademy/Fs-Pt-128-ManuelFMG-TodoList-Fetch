@@ -9,73 +9,99 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+/* Fondo de pantalla */
+
+body{
+    background-image: linear-gradient(rgba(250, 248, 248, 0.377), rgba(250, 248, 248, 0.377)),url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGBIEpP-LX_6MazKAjc7cjJ_a1jArMRKyMfw&s) ;
+    background-image: ;
+}
+
+h1{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
 /* HOJA PRINCIPAL */
 .notebook {
-	width: 420px;
-	background: #ffffff;
-	border: 1px solid #dcdcdc;
-	position: relative;
+  width: 420px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  position: relative;
 }
 
 /* SEGUNDA HOJA */
 .notebook::before {
-	content: "";
-	position: absolute;
-	width: calc(100% - 6px);
-	height: calc(100% - 6px);
-	bottom: -6px;
-	right: -6px;
-	background: #f7f7f7;
-	border: 1px solid #e1e1e1;
-	z-index: -1;
+  content: "";
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  bottom: -6px;
+  right: -6px;
+  background: #f7f7f7;
+  border: 1px solid #e1e1e1;
+  z-index: -1;
 }
 
 /* TERCERA HOJA */
 .notebook::after {
-	content: "";
-	position: absolute;
-	width: calc(100% - 12px);
-	height: calc(100% - 12px);
-	bottom: -12px;
-	right: -12px;
-	background: #f2f2f2;
-	border: 1px solid #e6e6e6;
-	z-index: -2;
+  content: "";
+  position: absolute;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  bottom: -12px;
+  right: -12px;
+  background: #f2f2f2;
+  border: 1px solid #e6e6e6;
+  z-index: -2;
 }
 
 /* ÍTEMS */
 .note-item {
-	font-size: 1.25rem;
-	color: #999;
-	padding: 16px 20px;
+  font-size: 1.25rem;
+  color: #999;
+  padding: 16px 20px;
 }
 
 /* LÍNEAS ENTRE ÍTEMS */
 .note-item:not(:last-child) {
-	border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
 }
 
 /* PIE */
 .note-footer {
-	font-size: 0.9rem;
-	color: #27ee1197;
-	padding: 10px 20px;
-	border-top: 1px solid #ededed;
-	background: #ffffff;
+  font-size: 0.9rem;
+  color: #27ee1197;
+  padding: 10px 20px;
+  border-top: 1px solid #ededed;
+  background: #ffffff;
 }
 
-.borrar {
-    cursor: pointer; 
-    color: rgba(255, 0, 0, 0.744);
-    font-size: 20px;
-
-}
 /*Esta clase la he encontrado al inspecionar porque 
 queria quitar el efecto de iluminación azul al pulsar */
-.form-control:focus { 
-    box-shadow: none;
+.form-control:focus {
+  box-shadow: none;
 }
 
 .icono {
-    padding-left: 15px;
+  padding-left: 15px;
 }
+
+/*Estado oculto de la X para boorar*/
+.borrar {
+    
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.744);
+    font-size: 20px;
+    opacity: 0; /* ----------------------------> Esto oculta la X */
+    transition: opacity 0.2s ease-in-out; /* Tiempo de respuesta o de reacción que tarda en salir la X */
+  
+}
+
+/*Estado visible de la x para borrar*/
+
+.tarea:hover .borrar {
+  opacity: 1;              /*  Muestra la X */
+}
+ 
